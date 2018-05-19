@@ -1,6 +1,7 @@
 (defproject catsdogs-classification "0.9.23-SNAPSHOT"
   :description "An example of using experiment/classification on mnist."
-  :dependencies [[org.clojure/clojure "1.9.0-alpha17"]
+  :dependencies [[thinktopic/cortex "0.9.23-SNAPSHOT"]
+                 [org.clojure/clojure "1.9.0-alpha17"]
                  [thinktopic/experiment "0.9.22"]
                  [org.clojure/tools.cli "0.3.5"]
 

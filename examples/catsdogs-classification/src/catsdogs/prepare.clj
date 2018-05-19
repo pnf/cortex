@@ -42,10 +42,11 @@
   (dorun (pmap test-fn training-observation-label-seq))))
 
 (comment
+  (def d "/Users/pnf/dev/cortex/examples/catsdogs-classification/data-cats-dogs/")
+  (catsdogs.prepare/build-image-data (str d "original") (str d "training") (str d "testing") 52)
   (build-image-data
     "data-cats-dogs/original"
     "data-cats-dogs/training"
     "data-cats-dogs/testing"
     52
-    )
-)
+    ))

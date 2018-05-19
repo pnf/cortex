@@ -4,7 +4,7 @@
 ;;;
 ; SETUP: PARAMETERS
 ;;;
-(def dataset-folder "data-cats-dogs/")
+(def dataset-folder "/Users/pnf/dev/cortex/examples/catsdogs-classification/data-cats-dogs/")
 (def training-folder (str dataset-folder "training"))
 (def test-folder (str dataset-folder "testing"))
 (def categories 
@@ -75,7 +75,21 @@
    "Creates a BufferedImage suitable for web display from the raw data
    that the net expects."
    [observation]
-   (patch/patch->image observation image-size))
+  (patch/patch->image observation image-size))
+
+(require '[cortex.experiment.classification :as classification])
+
+
+(defn do-it []
+  (let [listener (classification/create-listener observation->image
+                                                 class-mapping
+                                                 {})]
+    (classification/perform-experiment
+     (initial-description image-size image-size num-classes)
+     train-ds
+     test-ds
+     listener))
+  )
 
 ;;;
 ; TRAINING
